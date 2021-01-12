@@ -26,7 +26,7 @@ class Course {
         const idx = courses.findIndex(c => c.id === course.id);
         console.log(`Index: ${idx}`);
         console.log(courses[idx]);
-        if(idx != -1){
+        if(idx !== -1){
             courses[idx] = course;
         }else{
             throw 'Error expected index error';
