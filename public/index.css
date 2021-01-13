@@ -22,6 +22,17 @@
     height: auto;
 }
 
-.course .price.big{
+.course.price.big{
     font-size: 2.5rem;
+}
+
+.card-action.actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.card_container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(430px, 1fr));
 }
