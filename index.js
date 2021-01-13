@@ -1,11 +1,13 @@
 "use strict";
 const express = require('express');
 const exphbs = require('express-handlebars');
+const mongoose = require('mongoose');
 const homeRoutes = require('./routes/home');
 const cardRoutes = require('./routes/card');
 const addRoutes = require('./routes/add');
 const coursesRoutes = require('./routes/courses');
 const path = require('path');
+
 
 const app = express();
 
@@ -29,6 +31,13 @@ app.use('/card', cardRoutes);
 
 const PORT = process.env.PORT || 3000;
 
-app.listen(PORT, () => {
-    console.log(`Server is running on port: ${PORT}`);
-});
+async function start() {
+
+    const url = `mongodb+srv://naydenov:u9yIITHNQ@cluster0.9rcmf.mongodb.net/test?retryWrites=true&w=majority`;
+    await mongoose.connect(url, {useNewUrlParser: true});
+    app.listen(PORT, () => {
+        console.log(`Server is running on port: ${PORT}`);
+    });
+}
+
+start();
