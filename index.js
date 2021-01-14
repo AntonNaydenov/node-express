@@ -7,6 +7,7 @@ const cardRoutes = require('./routes/card');
 const addRoutes = require('./routes/add');
 const coursesRoutes = require('./routes/courses');
 const path = require('path');
+const {mongo} = require('./config.json')
 
 
 const app = express();
@@ -33,7 +34,7 @@ const PORT = process.env.PORT || 3000;
 
 async function start() {
 
-    const url = `mongodb+srv://naydenov:u9yIITHNQ@cluster0.9rcmf.mongodb.net/test?retryWrites=true&w=majority`;
+    const url = mongo;
     await mongoose.connect(url, {useNewUrlParser: true});
     app.listen(PORT, () => {
         console.log(`Server is running on port: ${PORT}`);
