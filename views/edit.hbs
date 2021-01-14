@@ -15,5 +15,11 @@
     </div>
     <div class="input-field"></div>
     <input id="id" name="id" type='hidden' value='{{course.id}}'></>
-    <button class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-primary">Submit</button>
+    
+
+</form>
+<form action="/courses/remove" method="post">
+    <input id="id" name="id" type='hidden' value='{{course.id}}'></>
+    <button class="waves-effect waves-light btn btn-floating red"><i class="material-icons right">delete</i></button>
 </form>

@@ -1,5 +1,5 @@
+"use strict";
 const {Router} = require('express');
-const { route } = require('./home');
 const Course = require('../models/course');
 const router = Router();
 
@@ -11,10 +11,18 @@ router.get('/add', (req, res) => {
 });
 
 router.post('/add', async (req, res) => {
-    console.log(req.body);
-    const course = new Course(req.body.title, req.body.price, req.body.img);
 
-    await course.save();
+    const course = new Course({
+        title: req.body.title,
+        price: req.body.price,
+        img: req.body.img
+    });
+    try {
+        await course.save();
+    } catch (e) {
+        console.log(e);
+    }
+
 
     res.redirect('/courses');
 });
