@@ -32,7 +32,12 @@
     justify-content: space-between;
 }
 
-.card_container{
+.card_container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(430px, 1fr));
+}
+
+
+.course-form {
+    margin-bottom: 20px;
 }
